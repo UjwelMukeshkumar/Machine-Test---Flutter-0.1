@@ -1,0 +1,61 @@
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class RegisterController extends GetxController {
+  var isLoading = false.obs;
+
+  Future<void> loginUser(String username, String password) async {
+    try {
+      isLoading(true);
+
+      final response = await GetConnect().post(
+       'http://flutter-amr.noviindus.in/api/PatientUpdate'
+        {
+          "name":name,
+     
+          "executive":excecutive
+          "payment": payment
+         "phone":phone
+          "address":address
+          "total":total_amount
+         "discount_amount":discount_amount
+          "advance_amount":advance_amount
+          "balance_amount":balance_amount
+          "dateandtime":date_nd_time
+          "id": id,
+          "male":male,
+          "female":female,
+          "branch":branch
+
+        },
+      );
+
+      if (response.statusCode == 200) {
+        var responseData = response.body['data'];
+        print(responseData);
+        // store in token to shared prefernces
+        await savetheToken(responseData['token']);
+        // store the user  into local storage
+        await saveUser(responseData['user_id']);
+
+        Get.to(Registration());
+      } else {
+        var errorMessage = response.body['message'];
+        Get.snackbar('Error', errorMessage);
+      }
+    } finally {
+      isLoading(false);
+    }
+  }
+
+  Future<void> savetheToken(String entryToken) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('access_token', entryToken);
+   
+  }
+
+  Future<void> saveUser(int userId) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('user_id', userId);
+  }
+}

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:novindius/Screens/login.dart';
+import 'package:novindius/Presentation/pages/login.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

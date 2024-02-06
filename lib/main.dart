@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novindius/Screens/login.dart';
-import 'package:novindius/Screens/register.dart';
-import 'package:novindius/Screens/splashscreen.dart';
+import 'package:novindius/Presentation/pages/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());

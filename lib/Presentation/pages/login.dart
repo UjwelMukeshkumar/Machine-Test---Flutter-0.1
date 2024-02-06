@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:novindius/Screens/patientlist.dart';
+import 'package:novindius/Presentation/pages/patientlist.dart';
+
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -162,7 +163,12 @@ class _LOGINState extends State<LOGIN> {
 
       if (response.statusCode == 200) {
         if (response.body.contains("success")) {
-          final prefs = await SharedPreferences.getInstance();
+          final Map<String, dynamic> responsedata = json.decode(response.body);
+          final String usertoken = responsedata['token'];
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          //final prefs = await SharedPreferences.getInstance();
+          prefs.setString("token", usertoken);
+
           prefs.setBool("isLoggedIn", true);
           prefs.setString("username", username);
 
@@ -194,4 +200,3 @@ class _LOGINState extends State<LOGIN> {
     }
   }
 }
-

@@ -123,52 +123,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               decoration: InputDecoration(
                   border: OutlineInputBorder(), labelText: 'Branch'),
             ),
-//             Row(
-//               children: [
-//                 Checkbox(
-//                   value: maleSelected,
-//                   onChanged: (value) {
-//                     setState(() {
-//                       maleSelected = value!;
-//                     });
-//                   },
-//                 ),
-//                 Text('Male'),
-//                 SizedBox(width: 20),
-//                 Text('Number of Male Treatments: '),
-//                 // Implement a counter for male treatments
-//               ],
-//             ),
-//             Row(
-//               children: [
-//                 Checkbox(
-//                   value: femaleSelected,
-//                   onChanged: (value) {
-//                     setState(() {
-//                       femaleSelected = value!;
-//                     });
-//                   },
-//                 ),
-//                 Text('Female'),
-//                 SizedBox(width: 20),
-//                 Text('Number of Female Treatments: '),
-//                 // Implement a counter for female treatments
-//               ],
-//             ),
-//             // Add more fields and widgets for the remaining parts of the form
-//             // such as Total Amount, Discount Amount, Payment Options, etc.
-//             ElevatedButton(
-//               onPressed: () {
-//                 // Implement form submission logic here
-//               },
-//               child: Text('Save'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -368,4 +323,5 @@ class _RegistrationFormState extends State<RegistrationForm> {
           ]),
         ));
   }
+  
 }

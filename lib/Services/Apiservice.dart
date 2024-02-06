@@ -39,4 +39,6 @@ class ApiService extends GetxController {
       return {"success": false, "message": "An error occurred"};
     }
   }
+  
+  
 }
